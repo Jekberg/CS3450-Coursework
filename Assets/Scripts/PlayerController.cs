@@ -16,10 +16,11 @@ public class PlayerController : MonoBehaviour
         var rotation = playerBody.localRotation.eulerAngles
             - Vector3.right * Input.GetAxis("Mouse Y") * MouseSensitivity * Time.deltaTime
             + Vector3.up * Input.GetAxis("Mouse X") * MouseSensitivity * Time.deltaTime;
-        rotation.x =  Mathf.Clamp(rotation.x - 360.0f, -90, 90);
-        
 
-        Debug.Log(rotation);
+        // Clamp the camera between -X and X
+        const float MaxXAngle = 45;
+        if (MaxXAngle < rotation.x && rotation.x < 360 - MaxXAngle)
+            rotation.x = rotation.x > 180 ? -MaxXAngle : MaxXAngle;
         playerBody.localRotation = Quaternion.Euler(rotation);
 	}
 }
