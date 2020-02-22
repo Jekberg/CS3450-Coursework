@@ -6,6 +6,9 @@ public class PlayerController : MonoBehaviour
     public float mouseSensitivity = 100.0f;
 
     [SerializeField]
+    private float jumpHeight;
+
+    [SerializeField]
     private Camera playerCamera;
 
     [SerializeField]
@@ -14,6 +17,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private CharacterController controller;
 
+    private Vector3 velocity;
+
+    private bool Jump { get { return Input.GetButtonDown("Jump"); } }
     private float MouseX { get { return Input.GetAxis("Mouse X") * Time.deltaTime; } }
     private float MouseY { get { return Input.GetAxis("Mouse Y") * Time.deltaTime; } }
     private float MoveX { get { return Input.GetAxis("Horizontal") * Time.deltaTime; } }
@@ -22,7 +28,6 @@ public class PlayerController : MonoBehaviour
 
     public void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         if(playerCamera ==  null)
             playerCamera = Camera.main;
     }
@@ -31,13 +36,12 @@ public class PlayerController : MonoBehaviour
     {
         CameraRotation();
         PlayerMovement();
-        f();
     }
 
     private void CameraRotation()
     {
-        var rotation = playerCamera.transform.rotation.eulerAngles
-            - Vector3.right * MouseY * mouseSensitivity;
+        var rotation = playerCamera.transform.rotation.eulerAngles;
+        rotation.x -= MouseY * mouseSensitivity;
         
         // Clamp the camera between -X and X
         const float MaxXAngle = 45;
@@ -49,12 +53,14 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerMovement()
     {
-        controller.Move(movementSpeed * (
-            playerBody.right * MoveX + playerBody.forward * MoveZ));
-    }
-
-    private void f()
-    {
-        controller.Move(-Vector3.up);
+        controller.Move(movementSpeed * (playerBody.right * MoveX + playerBody.forward * MoveZ));
+        velocity += Physics.gravity * Time.deltaTime;
+        var collision = controller.Move(velocity * Time.deltaTime);
+        if (CollisionFlags.Below == collision)
+        {
+            velocity.y = 0;
+            if (Jump)
+                velocity.y = Mathf.Sqrt(jumpHeight * -2 * Physics.gravity.y);
+        }
     }
 }

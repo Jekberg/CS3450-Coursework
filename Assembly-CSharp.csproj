@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\PlayerHUD.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/johnb/devel/CS3450-Coursework/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
