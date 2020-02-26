@@ -3,15 +3,18 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    private Transform target;
+    [SerializeField]
+    private GameObject healthBarPrefab;
+
+    private NavMeshAgent Agent{get { return GetComponent<NavMeshAgent>();}}
 
     public void Start()
     {
-        
+        Instantiate(healthBarPrefab, transform).transform.position += transform.up * 5;
     }
 
     public void Update()
     {
-        GetComponent<NavMeshAgent>().SetDestination(PlayerManager.PlayerInstance.transform.position);
+        Agent.SetDestination(PlayerManager.Player.transform.position);
     }
 }
