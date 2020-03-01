@@ -3,7 +3,7 @@
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject playerPrefab;
+    private GameObject player;
 
     [SerializeField]
     private GameObject hudPrefab;
@@ -15,8 +15,7 @@ public class PlayerManager : MonoBehaviour
 
     public void Awake()
     {
-        if(Player == null)
-            Player = Instantiate(playerPrefab, transform);
+        Player = player;
         Cursor.lockState = CursorLockMode.Locked;
         Instantiate(hudPrefab);
     }
