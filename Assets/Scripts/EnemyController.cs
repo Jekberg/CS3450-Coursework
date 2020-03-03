@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
 
     public void Start()
     {
-        GetComponent<Health>().onHealthUpdate += IsDead;
+        GetComponent<Health>().onHealthUpdate += HandleHealthUpdate;
     }
 
     public void Update()
@@ -15,8 +15,9 @@ public class EnemyController : MonoBehaviour
         Agent.SetDestination(PlayerManager.Player.transform.position);
     }
 
-    private void IsDead(float health) {
-        if (health < 0)
+    private void HandleHealthUpdate(float health)
+    {
+        if (health <= 0)
             Destroy(gameObject);
     }
 }

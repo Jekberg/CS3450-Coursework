@@ -9,8 +9,13 @@ public class PortalController : MonoBehaviour
     private GameObject enemyPrefeb;
 
     private float timeSinceSpawn = 0.0f;
-    
-	void Update ()
+
+    public void Start()
+    {
+        GetComponent<Health>().onHealthUpdate += HandleHealthUpdate;
+    }
+
+    void Update ()
     {
         if (spawnCooldownSeconds <= (timeSinceSpawn += Time.deltaTime))
         {
@@ -18,4 +23,10 @@ public class PortalController : MonoBehaviour
             Instantiate(enemyPrefeb, transform);
         }
 	}
+
+    private void HandleHealthUpdate(float health) 
+    {
+        if (health < 0)
+            Destroy(gameObject);
+    }
 }

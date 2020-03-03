@@ -24,12 +24,15 @@ public class Weapon : MonoBehaviour
             x -= Time.deltaTime;
         else if (Input.GetButton("Fire1"))
         {
+            var audio = GetComponent<AudioSource>();
+            if (audio != null)
+                audio.Play();
             x += fireRate;
             RaycastHit hit;
             if (Physics.Raycast(aim.position, aim.forward, out hit) && hit.transform.GetComponent<Health>())
             {
                 Debug.Log(hit.transform.name);
-                hit.transform.GetComponent<Health>().Damage(90);
+                hit.transform.GetComponent<Health>().Damage(10);
             }
         }
 	}
