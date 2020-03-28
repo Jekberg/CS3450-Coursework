@@ -11,6 +11,7 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
+        Cursor.lockState = CursorLockMode.None;
         Instance = new MenuManager();
         foreach (var menu in GetComponentsInChildren<MenuHook>(true))
             Register(menu.gameObject.name, menu);

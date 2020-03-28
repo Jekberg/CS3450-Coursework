@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
 
     public event Action<float> onHealthUpdate = delegate { };
 
-    public void Start()
+    private void Start()
     {
         currentHealth = maxHealth;
     }

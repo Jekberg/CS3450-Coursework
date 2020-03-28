@@ -3,14 +3,19 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    private NavMeshAgent Agent{get { return GetComponent<NavMeshAgent>();}}
+    private NavMeshAgent Agent {get { return GetComponent<NavMeshAgent>();}}
 
-    public void Start()
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision);
+    }
+
+    private void Start()
     {
         GetComponent<Health>().onHealthUpdate += HandleHealthUpdate;
     }
 
-    public void Update()
+    private void Update()
     {
         Agent.SetDestination(PlayerManager.Player.transform.position);
     }

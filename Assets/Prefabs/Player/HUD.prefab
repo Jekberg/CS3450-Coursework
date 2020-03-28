@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114410789944505672}
   - component: {fileID: 114870433808475954}
   m_Layer: 5
-  m_Name: UserInterfce
+  m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

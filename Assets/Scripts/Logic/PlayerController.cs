@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Start()
+    private void Start()
     {
         if (playerCamera == null)
         {
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-	public void Update()
+	private void Update()
     {
         CameraRotation();
         PlayerMovement();

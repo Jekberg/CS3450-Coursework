@@ -6,12 +6,12 @@ public class HealthBar : MonoBehaviour
     [SerializeField]
     private Image healthBar;
 
-    public void Start()
+    private void Start()
     {
         GetComponent<Health>().onHealthUpdate += FillHealthBar;
     }
 
-    public void Update()
+    private void Update()
     {
         healthBar.transform.LookAt(Camera.main.transform.position);
     }

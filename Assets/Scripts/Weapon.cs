@@ -16,7 +16,7 @@ public class Weapon : MonoBehaviour
 
     private float x = 0;
 
-	void Update ()
+	private void Update ()
     {
         if (false)
             ;

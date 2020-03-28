@@ -5,7 +5,7 @@ public class MenuSystem : MonoBehaviour
 {
     public void Launch()
     {
-        SceneManager.LoadSceneAsync("TestArea");
+        SceneManager.LoadSceneAsync("Level 1");
     }
 
     public void Quit()

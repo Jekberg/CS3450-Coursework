@@ -13,7 +13,7 @@ public class PlayerManager : MonoBehaviour
         private set;
     }
 
-    public void Awake()
+    private void Awake()
     {
         Player = player;
         Cursor.lockState = CursorLockMode.Locked;
