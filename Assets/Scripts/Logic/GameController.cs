@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
         foreach (var round in Rounds)
             round.gameObject.SetActive(false);
         Rounds[currentRound].gameObject.SetActive(true);
-        Debug.Log(Rounds.Count());
+        Debug.Log(string.Format("Rounds to play: {0}", Rounds.Count()));
     }
 
     private void Update()

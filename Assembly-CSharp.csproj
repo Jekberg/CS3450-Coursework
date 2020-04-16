@@ -61,18 +61,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Data\GameDataRepository.cs" />
     <Compile Include="Assets\Scripts\Data\ScoreCounter.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
-    <Compile Include="Assets\Scripts\Enemy\EnemyPool.cs" />
-    <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Logic\GameController.cs" />
     <Compile Include="Assets\Scripts\Logic\Health.cs" />
+    <Compile Include="Assets\Scripts\Logic\LevelInfo.cs" />
     <Compile Include="Assets\Scripts\Logic\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Logic\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Logic\RoundController.cs" />
+    <Compile Include="Assets\Scripts\Menu\HUDController.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuHook.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuSystem.cs" />
+    <Compile Include="Assets\Scripts\Misc\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\Misc\HealthPack.cs" />
     <Compile Include="Assets\Scripts\PortalController.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <None Include="Assets\Assets.txt" />

@@ -3,12 +3,20 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    private NavMeshAgent Agent {get { return GetComponent<NavMeshAgent>();}}
+    [SerializeField] private int damageAmount;
+    [SerializeField] private float pushForce;
 
-    private void OnCollisionEnter(Collision collision)
+    public float PushForce
     {
-        Debug.Log(collision);
+        get { return pushForce; }
     }
+
+    public int DamageAmount
+    {
+        get { return damageAmount; }
+    }
+
+    private NavMeshAgent Agent {get { return GetComponent<NavMeshAgent>();}}
 
     private void Start()
     {
@@ -17,12 +25,15 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        Agent.SetDestination(PlayerManager.Player.transform.position);
+        Agent.SetDestination(PlayerController.Player.transform.position);
     }
 
     private void HandleHealthUpdate(float health)
     {
-        if (health <= 0)
-            Destroy(gameObject);
+        if (0.0f < health)
+            return;
+
+        LevelInfo.Info.IncreaseScore(10f);
+        Destroy(gameObject);
     }
 }

@@ -8,7 +8,7 @@ public class PortalController : MonoBehaviour
     [SerializeField]
     private GameObject enemyPrefeb;
 
-    [SerializeField] private EnemyPool pool;
+    [SerializeField] private GameObject pool;
 
     private float timeSinceSpawn = 0.0f;
 
@@ -29,6 +29,9 @@ public class PortalController : MonoBehaviour
     private void HandleHealthUpdate(float health) 
     {
         if (health < 0)
+        {
+            LevelInfo.Info.IncreaseScore(1000f);
             Destroy(gameObject);
+        }
     }
 }

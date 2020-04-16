@@ -19,4 +19,10 @@ public class Health : MonoBehaviour
         currentHealth -= damageAmount;
         onHealthUpdate((float)currentHealth / (float)maxHealth);
     }
+
+    public void Heal(int healAmount)
+    {
+        currentHealth += healAmount;
+        onHealthUpdate((float)currentHealth / (float)maxHealth);
+    }
 }

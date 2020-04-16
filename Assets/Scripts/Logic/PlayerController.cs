@@ -1,20 +1,31 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public float dashForce = 100.0f;
     public float movementSpeed = 100.0f;
     public float mouseSensitivity = 100.0f;
 
-    [SerializeField]
-    private float jumpHeight;
+    [SerializeField] private float dashRechargeDurarion = 10.0f;
+    [SerializeField] private float jumpHeight;
+    [SerializeField] private Camera playerCamera;
+    [SerializeField] private Transform playerBody;
 
-    [SerializeField]
-    private Camera playerCamera;
+    private Vector3 velocity; // For maintaining the acceleration for jumping
 
-    [SerializeField]
-    private Transform playerBody;
+    private PlayerController() { }
 
-    private Vector3 velocity;
+    public float DashCharge
+    {
+        get;
+        private set;
+    }
+
+    public Health Health
+    {
+        get { return GetComponent<Health>();  }
+    }
 
     private bool Jump { get { return Input.GetButtonDown("Jump"); } }
     private float MouseX { get { return Input.GetAxis("Mouse X") * Time.deltaTime; } }
@@ -28,18 +39,37 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public static PlayerController Player
+    {
+        get;
+        private set;
+    }
+
+    public void Push(float force, Transform location)
+    {
+        var pushDirection = (transform.position - location.position).normalized;
+        velocity += force * Vector3.Scale(pushDirection, Vector3.right + Vector3.forward);
+    }
+
+    private void Awake()
+    {
+        Player = this;
+        Debug.Log(Player);
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     private void Start()
     {
+        Health.onHealthUpdate += HandleHealthUpdate;
         if (playerCamera == null)
-        {
             playerCamera = Camera.main;
-        }
     }
 
 	private void Update()
     {
         CameraRotation();
         PlayerMovement();
+        DashMovement();
     }
 
     private void CameraRotation()
@@ -57,8 +87,12 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerMovement()
     {
-        Controller.Move(movementSpeed * (playerBody.right * MoveX + playerBody.forward * MoveZ));
+        const float HorizontalVelocityEase = 0.33f; // 0 = no velocity
+        
+        Controller.Move(movementSpeed * (playerBody.right * MoveX + playerBody.forward * MoveZ));   
         velocity += Physics.gravity * Time.deltaTime;
+        velocity.x *= Mathf.Pow(HorizontalVelocityEase, Time.deltaTime);
+        velocity.z *= Mathf.Pow(HorizontalVelocityEase, Time.deltaTime);
         var collision = Controller.Move(velocity * Time.deltaTime);
         if (CollisionFlags.Below == collision)
         {
@@ -66,5 +100,46 @@ public class PlayerController : MonoBehaviour
             if (Jump)
                 velocity.y = Mathf.Sqrt(-2 * jumpHeight * Physics.gravity.y);
         }
+
+    }
+
+    private void DashMovement()
+    {
+        // Recharge the 
+        if (1.0f < DashCharge)
+            DashCharge = 1.0f;
+        else
+            DashCharge += Time.deltaTime / dashRechargeDurarion;
+        if (Input.GetMouseButtonDown(1))
+        {
+            // Diminishing returns if the charge is not ready.
+            velocity += dashForce * DashCharge * DashCharge * transform.forward;
+            DashCharge = 0.0f;
+        }
+    }
+
+    private void HandleHealthUpdate(float health)
+    {
+        if (health <= 0.0f)
+        {
+            Debug.Log("The player is dead");
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        }
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit collision)
+    {
+        // Nothing here is too excited excpet for enemy collisions
+        var enemy = collision.gameObject.GetComponent<EnemyController>();
+        if (enemy != null)
+        {
+            Push(enemy.PushForce, enemy.transform);
+            Debug.Log(string.Format("Player collision: {0}", collision));
+            Health.Damage(enemy.DamageAmount);
+        }
+        
+        var healthPack = collision.gameObject.GetComponent<HealthPack>();
+        if (healthPack != null)
+            healthPack.UseOn(Health);
     }
 }

@@ -29,7 +29,9 @@ public class Weapon : MonoBehaviour
                 audio.Play();
             x += fireRate;
             RaycastHit hit;
-            if (Physics.Raycast(aim.position, aim.forward, out hit) && hit.transform.GetComponent<Health>())
+            if (Physics.Raycast(aim.position, aim.forward, out hit)
+                && hit.transform.GetComponent<Health>()
+                && hit.collider.tag != "Player")
             {
                 Debug.Log(hit.transform.name);
                 hit.transform.GetComponent<Health>().Damage(10);
