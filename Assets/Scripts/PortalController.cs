@@ -8,8 +8,6 @@ public class PortalController : MonoBehaviour
     [SerializeField]
     private GameObject enemyPrefeb;
 
-    [SerializeField] private GameObject pool;
-
     private float timeSinceSpawn = 0.0f;
 
     public void Start()
@@ -22,7 +20,7 @@ public class PortalController : MonoBehaviour
         if (spawnCooldownSeconds <= (timeSinceSpawn += Time.deltaTime))
         {
             timeSinceSpawn -= spawnCooldownSeconds;
-            Instantiate(enemyPrefeb, transform.position, transform.rotation, pool.transform);
+            Instantiate(enemyPrefeb, transform.position, transform.rotation, transform.parent);
         }
 	}
 
@@ -30,7 +28,7 @@ public class PortalController : MonoBehaviour
     {
         if (health < 0)
         {
-            LevelInfo.Info.IncreaseScore(1000f);
+            GameManager.Manager.IncreaseScore(1000f);
             Destroy(gameObject);
         }
     }

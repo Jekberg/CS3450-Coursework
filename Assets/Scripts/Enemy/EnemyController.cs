@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour
         if (0.0f < health)
             return;
 
-        LevelInfo.Info.IncreaseScore(10f);
+        GameManager.Manager.IncreaseScore(10f);
         Destroy(gameObject);
     }
 }
