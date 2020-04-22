@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
     private void OnControllerColliderHit(ControllerColliderHit collision)
     {
         // Nothing here is too excited excpet for enemy collisions
-        var enemy = collision.gameObject.GetComponent<EnemyController>();
+        var enemy = collision.gameObject.GetComponent<BasicChaseMovement>();
         if (enemy != null)
         {
             Push(enemy.PushForce, enemy.transform);
