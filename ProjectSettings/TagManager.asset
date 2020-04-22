@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Rounds
+  - Menu Item
   layers:
   - Default
   - TransparentFX

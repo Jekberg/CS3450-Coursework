@@ -166,3 +166,4 @@ D:\johnb\devel\CS3450-Coursework\obj\Debug\Assembly-CSharp.csproj.CoreCompileInp
 D:\johnb\devel\CS3450-Coursework\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\johnb\devel\CS3450-Coursework\obj\Debug\Assembly-CSharp.dll
 D:\johnb\devel\CS3450-Coursework\obj\Debug\Assembly-CSharp.pdb
+D:\johnb\devel\CS3450-Coursework\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb

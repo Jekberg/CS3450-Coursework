@@ -17,7 +17,7 @@ public class DataRepository : MonoBehaviour
     public void Save(string fileName)
     {
         var state = new SaveState();
-        state.userScore = GlobalCache.Cache.Get<float>("Total_Score");
+        state.userScore = GlobalCache.Cache.GetOrDefault<float>("Total_Score");
 
         using (var stream = new MemoryStream())
         {
@@ -30,7 +30,15 @@ public class DataRepository : MonoBehaviour
         }
     }
 
-    public void Load(int id)
+    public void Load(string fileName)
     {
+        var document = new XmlDocument();
+        document.Load(fileName);
+
+        var state = new SaveState();
+        using (var x = new StringReader(document.OuterXml))
+            state = (SaveState)Serializer.Deserialize(x);
+
+        GlobalCache.Cache.Set("Total_Score", state.userScore);
     }
 }

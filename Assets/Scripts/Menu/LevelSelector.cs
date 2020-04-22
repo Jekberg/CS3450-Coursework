@@ -11,6 +11,16 @@ public class LevelSelector : MonoBehaviour
         SceneManager.LoadSceneAsync(levelName);
     }
 
+    public void SaveAndQuit()
+    {
+        var dataRepo = GetComponent<DataRepository>();
+        if (dataRepo == null)
+            return;
+
+        dataRepo.Save(GlobalCache.Cache.Get<string>("Save File"));
+        SceneManager.LoadSceneAsync("Main Menu");
+    }
+
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.None;

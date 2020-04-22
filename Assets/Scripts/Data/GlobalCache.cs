@@ -33,6 +33,11 @@ public class GlobalCache : MonoBehaviour
         {
             return (T)cache[key];
         }
+
+        public T GetOrDefault<T>(string key) where T : new()
+        {
+            return Contains(key) ? Get<T>(key) : new T(); ;
+        }
     }
 
     public static DataCache Cache

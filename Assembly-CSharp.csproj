@@ -75,8 +75,6 @@
     <Compile Include="Assets\Scripts\Game\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Game\WaitForCountdownObjective.cs" />
     <Compile Include="Assets\Scripts\Menu\LevelSelector.cs" />
-    <Compile Include="Assets\Scripts\Menu\MenuHook.cs" />
-    <Compile Include="Assets\Scripts\Menu\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuSystem.cs" />
     <Compile Include="Assets\Scripts\Misc\Health.cs" />
     <Compile Include="Assets\Scripts\Misc\HealthBar.cs" />
@@ -85,7 +83,9 @@
     <Compile Include="Assets\Scripts\PortalController.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <None Include="Assets\Assets.txt" />
-    <None Include="Assets\Saves\Game 1.xml" />
+    <None Include="Assets\Saves\Game Data 2.xml" />
+    <None Include="Assets\Saves\Game Data 1.xml" />
+    <None Include="Assets\Saves\Game Data 3.xml" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/johnb/devel/CS3450-Coursework/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
