@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
     private void OnControllerColliderHit(ControllerColliderHit collision)
     {
         // Nothing here is too excited excpet for enemy collisions
-        var enemy = collision.gameObject.GetComponent<BasicChaseMovement>();
+        var enemy = collision.gameObject.GetComponent<DamageOnContact>();
         if (enemy != null)
         {
             Push(enemy.PushForce, enemy.transform);
@@ -135,5 +135,9 @@ public class PlayerController : MonoBehaviour
         var healthPack = collision.gameObject.GetComponent<HealthPack>();
         if (healthPack != null)
             healthPack.UseOn(Health);
+
+        var trigger = collision.gameObject.GetComponent<SetTriggerParameterOnPlayerContanct>();
+        if (trigger != null)
+            trigger.SetPlayerContact();
     }
 }

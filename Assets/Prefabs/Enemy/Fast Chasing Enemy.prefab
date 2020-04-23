@@ -731,9 +731,13 @@ GameObject:
   - component: {fileID: 4055217075412794}
   - component: {fileID: 136903199477871936}
   - component: {fileID: 195988842635174078}
+  - component: {fileID: 95229295510919464}
   - component: {fileID: 114479860418633664}
   - component: {fileID: 114550701121446796}
+  - component: {fileID: 114998098529923508}
   - component: {fileID: 114555279913098182}
+  - component: {fileID: 114112152094848946}
+  - component: {fileID: 114352385874995168}
   m_Layer: 0
   m_Name: Fast Chasing Enemy
   m_TagString: Untagged
@@ -2147,6 +2151,24 @@ Transform:
   m_Father: {fileID: 4917712470448724}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &95229295510919464
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1628648217246052}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 8b7df0ffe005e914f81d8c4951b3d15e, type: 3}
+  m_Controller: {fileID: 9100000, guid: 3bc2accfc40ecdc4ab4169ebff25fe4f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &95800955050843102
 Animator:
   serializedVersion: 3
@@ -2165,6 +2187,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114112152094848946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1628648217246052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d8910bb2fa0c234bb58be4a82b6ab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterName: MovementSpeed
 --- !u!114 &114348670197151382
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2177,6 +2211,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 114930236095679976}
+--- !u!114 &114352385874995168
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1628648217246052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead4c53f5855c2b42a11a915f109dcd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterName: PlayerContact
 --- !u!114 &114430874101243156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2209,8 +2255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cbbf13f51936114f80b88b592d0049c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 5
-  pushForce: 100
 --- !u!114 &114550701121446796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2278,6 +2322,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114998098529923508
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1628648217246052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93248932317ff344a2307e3e366e5cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 20
+  pushForce: 50
 --- !u!136 &136903199477871936
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -2287,7 +2344,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 1
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}

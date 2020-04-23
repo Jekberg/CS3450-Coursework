@@ -61,15 +61,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Animation\SetFloatParameterToMovementSpeed.cs" />
+    <Compile Include="Assets\Scripts\Animation\SetTriggerParameterOnPlayerContanct.cs" />
     <Compile Include="Assets\Scripts\Data\DataRepository.cs" />
     <Compile Include="Assets\Scripts\Data\GlobalCache.cs" />
-    <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BasicChaseMovement.cs" />
+    <Compile Include="Assets\Scripts\Enemy\DamageOnContact.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Defeatable.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\Enemy\FireAtPlayer.cs" />
+    <Compile Include="Assets\Scripts\Enemy\FlyingMovement.cs" />
+    <Compile Include="Assets\Scripts\Enemy\LookAtPlayer.cs" />
     <Compile Include="Assets\Scripts\Game\DamagePlayer.cs" />
     <Compile Include="Assets\Scripts\Game\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Game\HowToDashTutorial.cs" />
-    <Compile Include="Assets\Scripts\Game\HowToJumpTutorial.cs" />
-    <Compile Include="Assets\Scripts\Game\HowToMoveTutorial.cs" />
-    <Compile Include="Assets\Scripts\Game\HowToShootTutorial.cs" />
     <Compile Include="Assets\Scripts\Game\ObjectiveDestroyAllObjects.cs" />
     <Compile Include="Assets\Scripts\Game\Phase.cs" />
     <Compile Include="Assets\Scripts\Game\PlayerController.cs" />
@@ -80,7 +84,11 @@
     <Compile Include="Assets\Scripts\Misc\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Misc\HealthPack.cs" />
     <Compile Include="Assets\Scripts\Misc\HUDController.cs" />
-    <Compile Include="Assets\Scripts\PortalController.cs" />
+    <Compile Include="Assets\Scripts\Misc\Rotation.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\HowToDashTutorial.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\HowToJumpTutorial.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\HowToMoveTutorial.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\HowToShootTutorial.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <None Include="Assets\Assets.txt" />
     <None Include="Assets\Saves\Game Data 2.xml" />
@@ -329,12 +337,6 @@
     <Reference Include="Boo.Lang">
       <HintPath>D:/Program Files/Unity/Hub/Editor/2018.2.18f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/Boo.Lang.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{8F184958-2358-8F7F-1452-D98EBCE7A39C}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
