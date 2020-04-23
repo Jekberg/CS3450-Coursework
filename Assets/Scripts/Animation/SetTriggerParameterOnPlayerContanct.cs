@@ -15,10 +15,4 @@ public class SetTriggerParameterOnPlayerContanct : MonoBehaviour
     {
         parameterId = Animator.StringToHash(parameterName);
     }
-
-    private void Update()
-    {
-        Animation.ResetTrigger(parameterId);
-	}
-
 }

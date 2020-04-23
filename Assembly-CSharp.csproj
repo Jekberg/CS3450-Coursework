@@ -78,8 +78,10 @@
     <Compile Include="Assets\Scripts\Game\Phase.cs" />
     <Compile Include="Assets\Scripts\Game\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Game\WaitForCountdownObjective.cs" />
+    <Compile Include="Assets\Scripts\Game\Weapon.cs" />
     <Compile Include="Assets\Scripts\Menu\LevelSelector.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuSystem.cs" />
+    <Compile Include="Assets\Scripts\Menu\VictoryScreen.cs" />
     <Compile Include="Assets\Scripts\Misc\Health.cs" />
     <Compile Include="Assets\Scripts\Misc\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Misc\HealthPack.cs" />
@@ -89,8 +91,8 @@
     <Compile Include="Assets\Scripts\Tutorial\HowToJumpTutorial.cs" />
     <Compile Include="Assets\Scripts\Tutorial\HowToMoveTutorial.cs" />
     <Compile Include="Assets\Scripts\Tutorial\HowToShootTutorial.cs" />
-    <Compile Include="Assets\Scripts\Weapon.cs" />
     <None Include="Assets\Assets.txt" />
+    <None Include="Assets\Saves\Test123.xml" />
     <None Include="Assets\Saves\Game Data 2.xml" />
     <None Include="Assets\Saves\Game Data 1.xml" />
     <None Include="Assets\Saves\Game Data 3.xml" />

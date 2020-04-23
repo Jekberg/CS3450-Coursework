@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
                 CurrentRound = -1;
                 var totalScore = GlobalCache.Cache.Get<float>("Total_Score");
                 GlobalCache.Cache.Set("Total_Score", totalScore + GameManager.Manager.ScoreCount);
-                SceneManager.LoadSceneAsync("Level Selector");
+                SceneManager.LoadSceneAsync("Victory Screen");
             }
         }
     }
