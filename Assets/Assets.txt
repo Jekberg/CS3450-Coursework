@@ -1,3 +1,5 @@
+Git ignore file from https://github.com/github/gitignore/blob/master/Unity.gitignore#L10
+
 Models and Animations : in the "Model" folder
 https://www.mixamo.com/
 
