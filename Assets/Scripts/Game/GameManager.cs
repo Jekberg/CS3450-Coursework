@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static GameObject manager;
-
     [SerializeField] private GameObject rounds;
 
     public int CurrentRound
@@ -49,11 +48,13 @@ public class GameManager : MonoBehaviour
     {
         manager = gameObject;
         foreach (var round in Phases)
-        {
-            Debug.Log(round.name);
             round.gameObject.SetActive(false);
-        }
         Phases[CurrentRound].gameObject.SetActive(true);
+    }
+
+    private void Start()
+    {
+        GlobalCache.Cache.Set("Level Complete", false);
     }
 
     private void Update()
@@ -69,8 +70,9 @@ public class GameManager : MonoBehaviour
             else if (CurrentRound == Phases.Count())
             {
                 /* WIN */
+                GlobalCache.Cache.Set("Level Complete", true);
                 CurrentRound = -1;
-                var totalScore = GlobalCache.Cache.Get<float>("Total_Score");
+                var totalScore = GlobalCache.Cache.GetOrDefault<float>("Total_Score");
                 GlobalCache.Cache.Set("Total_Score", totalScore + GameManager.Manager.ScoreCount);
                 SceneManager.LoadSceneAsync("Victory Screen");
             }

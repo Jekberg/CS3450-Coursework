@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpHeight;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private Transform playerBody;
-
+    [SerializeField] private AudioSource dashSound;
+    [SerializeField] private AudioSource hitSound;
     private Vector3 velocity; // For maintaining the acceleration for jumping
 
     private PlayerController() { }
@@ -107,8 +108,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             // Diminishing returns if the charge is not ready.
+            dashSound.Play();
             velocity += dashForce * DashCharge * DashCharge * transform.forward;
             DashCharge = 0.0f;
+            
         }
     }
 
@@ -116,8 +119,8 @@ public class PlayerController : MonoBehaviour
     {
         if (health <= 0.0f)
         {
-            Debug.Log("The player is dead");
-            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+            GlobalCache.Cache.Set("Current Level", SceneManager.GetActiveScene().name);
+            SceneManager.LoadSceneAsync("Game Over Screen");
         }
     }
 
@@ -127,6 +130,7 @@ public class PlayerController : MonoBehaviour
         var enemy = collision.gameObject.GetComponent<DamageOnContact>();
         if (enemy != null)
         {
+            hitSound.Play();
             Push(enemy.PushForce, enemy.transform);
             Debug.Log(string.Format("Player collision: {0}", collision));
             Health.Damage(enemy.DamageAmount);

@@ -1,12 +1,23 @@
-High_Technologic_Beat_Explosion.mp3
-Available From: https://freemusicarchive.org/music/Loyalty_Freak_Music/ROBOT_DANCE_/Loyalty_Freak_Music_-_ROBOT_DANCE__-_02_High_Technologic_Beat_Explosion
+Models and Animations : in the "Model" folder
+https://www.mixamo.com/
 
-It_feels_good_to_be_alive_too.mp3
-Available From: https://freemusicarchive.org/music/Loyalty_Freak_Music/ROBOT_DANCE_/Loyalty_Freak_Music_-_ROBOT_DANCE__-_04_It_feels_good_to_be_alive_too
+Asset Store : in the "Asset Store" folder
+Sci-Fi Gun https://assetstore.unity.com/packages/3d/sci-fi-gun-30826
+
+Low poly combat drone https://assetstore.unity.com/packages/3d/low-poly-combat-drone-82234
+
+Hand Painted Grass Texture https://assetstore.unity.com/packages/2d/textures-materials/floors/hand-painted-grass-texture-78552
 
 
-Everyone_is_so_alive.mp3
-Available From: https://freemusicarchive.org/music/Loyalty_Freak_Music/ROBOT_DANCE_/Loyalty_Freak_Music_-_ROBOT_DANCE__-_01_Everyone_is_so_alive
+Music : in the "Audio" folder
+High_Technologic_Beat_Explosion.mp3 https://freemusicarchive.org/music/Loyalty_Freak_Music/ROBOT_DANCE_/Loyalty_Freak_Music_-_ROBOT_DANCE__-_02_High_Technologic_Beat_Explosion
 
-Laser-Blaster.waw
-Available From: http://soundbible.com/472-Laser-Blasts.html
+It_feels_good_to_be_alive_too.mp3 https://freemusicarchive.org/music/Loyalty_Freak_Music/ROBOT_DANCE_/Loyalty_Freak_Music_-_ROBOT_DANCE__-_04_It_feels_good_to_be_alive_too
+
+Everyone_is_so_alive.mp3 https://freemusicarchive.org/music/Loyalty_Freak_Music/ROBOT_DANCE_/Loyalty_Freak_Music_-_ROBOT_DANCE__-_01_Everyone_is_so_alive
+
+Laser-Blaster.waw http://soundbible.com/472-Laser-Blasts.html
+
+Realistic_Punch.waw http://soundbible.com/2069-Realistic-Punch.html
+
+Swooshing.mp3 http://soundbible.com/670-Swooshing.html

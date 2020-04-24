@@ -36,6 +36,11 @@ public class HUDController : MonoBehaviour
         SceneManager.LoadSceneAsync(returnTo);
     }
 
+    private void Awake()
+    {
+        Time.timeScale = 1.0f;
+    }
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;

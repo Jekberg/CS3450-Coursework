@@ -10,6 +10,7 @@ public class DataRepository : MonoBehaviour
     public struct SaveState
     {
         public float userScore;
+        public int gameProgress;
     }
 
     private static readonly XmlSerializer Serializer = new XmlSerializer(typeof(SaveState));
@@ -18,6 +19,7 @@ public class DataRepository : MonoBehaviour
     {
         var state = new SaveState();
         state.userScore = GlobalCache.Cache.GetOrDefault<float>("Total_Score");
+        state.gameProgress = GlobalCache.Cache.GetOrDefault<int>("Level Progress");
 
         using (var stream = new MemoryStream())
         {
@@ -40,5 +42,6 @@ public class DataRepository : MonoBehaviour
             state = (SaveState)Serializer.Deserialize(x);
 
         GlobalCache.Cache.Set("Total_Score", state.userScore);
+        GlobalCache.Cache.Set("Level Progress", state.gameProgress);
     }
 }

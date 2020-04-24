@@ -7,7 +7,6 @@ public class MenuSystem : MonoBehaviour
 {
     [SerializeField] private string menuItemTag;
     [SerializeField] private string selectSaveMenuName;
-    [SerializeField] private string optionsMenuName;
     private readonly IDictionary<string, GameObject> menus = new Dictionary<string, GameObject>();
     private readonly Stack<GameObject> activeCanvas = new Stack<GameObject>();
 
@@ -36,11 +35,6 @@ public class MenuSystem : MonoBehaviour
         else
             dataRepo.Save(GlobalCache.Cache.Get<string>("Save File"));
         SceneManager.LoadSceneAsync("Level Selector");
-    }
-
-    public void NavigateToOptions()
-    {
-        NavigateTo(optionsMenuName);
     }
 
     public void QuitGame()
